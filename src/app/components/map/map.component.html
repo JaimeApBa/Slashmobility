@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-header" id="map">
+        <agm-map [latitude]="lat" [longitude]="long">
+            <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+        </agm-map>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary float-right mt-3" (click)="getCurrentLocation()">
+            GET MY LOCATION
+            <i class="fas fa-map-marker-alt"></i>
+        </button>
+    </div>
+
+</div>

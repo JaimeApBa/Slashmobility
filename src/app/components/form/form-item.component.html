@@ -1,0 +1,18 @@
+<div [formGroup]="form">
+    <label [attr.for]="question.key">{{question.label}}</label>
+
+    <div [ngSwitch]="question.controlType">
+
+        <input class="col-12" *ngSwitchCase="'textbox'" [formControlName]="question.key" [name]="question.key" [type]="question.type" [pattern]="question.pattern">
+        <div *ngSwitchCase="'radio'">
+            <div *ngFor="let val of question.value">
+                <input [formControlName]="question.key" [id]="question.key" [name]="question.key" [type]="question.type" [value]="val">
+                <label [attr.for]="val">{{val}}</label>
+            </div>
+        </div>
+        <textarea class="col-12" *ngSwitchCase="'textarea'" [formControlName]="question.key" [id]="question.key"></textarea>
+
+    </div>
+    <div class="errorMessage" *ngIf="formSubmitted && !isValid">{{question.label}} is required</div>
+
+</div>
